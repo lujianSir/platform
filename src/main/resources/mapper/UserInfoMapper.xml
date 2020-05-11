@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace： 1. namespace必须和Mapper接口类路径一致 -->
+<mapper namespace="com.item.mapper.UserInfoMapper">
+	<insert id="insertUserInfo" parameterType="com.item.entity.UserInfo">
+		insert into userinfo(loginname,password,starttime,endtime) values (#{loginname},#{password},#{starttime},#{endtime})
+	</insert>
+	
+	<select id="queryUserInfo"  resultType="com.item.entity.UserInfo">
+		SELECT
+			*,
+			case when endtime ='' THEN 1 
+			when endtime >= DATE_FORMAT(NOW(), '%Y-%m-%d') THEN 1 else 2 end status
+		FROM
+			userinfo where loginname=#{loginname} and password=#{password}
+	</select>
+</mapper>
