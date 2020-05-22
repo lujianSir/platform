@@ -31,37 +31,37 @@ public class BridgeServiceImpl implements BridgeService {
 				List<Object> ob = listob.get(i);
 				Bridge bridge = new Bridge();
 				if (ob.get(0) != null && !String.valueOf(ob.get(0)).equals("")) {
-					bridge.setBridge_id(String.valueOf(ob.get(0)));
+					bridge.setId(String.valueOf(ob.get(0)));
 				}
 				if (ob.get(1) != null && !String.valueOf(ob.get(1)).equals("")) {
-					bridge.setBridge_category(String.valueOf(ob.get(1)));
+					bridge.setCategory(String.valueOf(ob.get(1)));
 				}
 				if (ob.get(2) != null && !String.valueOf(ob.get(2)).equals("")) {
-					bridge.setBridge_name(String.valueOf(ob.get(2)));
+					bridge.setName(String.valueOf(ob.get(2)));
 				}
 				if (ob.get(3) != null && !String.valueOf(ob.get(3)).equals("")) {
-					bridge.setBridge_area(String.valueOf(ob.get(3)));
+					bridge.setArea(String.valueOf(ob.get(3)));
 				}
 				if (ob.get(4) != null && !String.valueOf(ob.get(4)).equals("")) {
-					bridge.setBridge_height(String.valueOf(ob.get(4)));
+					bridge.setHeight(String.valueOf(ob.get(4)));
 				}
 				if (ob.get(5) != null && !String.valueOf(ob.get(5)).equals("")) {
-					bridge.setBridge_realheight(String.valueOf(ob.get(5)));
+					bridge.setRealheight(String.valueOf(ob.get(5)));
 				}
 				if (ob.get(6) != null && !String.valueOf(ob.get(6)).equals("")) {
-					bridge.setBridge_diameter(String.valueOf(ob.get(6)));
+					bridge.setDiameter(String.valueOf(ob.get(6)));
 				}
 				if (ob.get(7) != null && !String.valueOf(ob.get(7)).equals("")) {
-					bridge.setBridge_textures(String.valueOf(ob.get(7)));
+					bridge.setTextures(String.valueOf(ob.get(7)));
 				}
 				if (ob.get(8) != null && !String.valueOf(ob.get(8)).equals("")) {
-					bridge.setBridge_longs(String.valueOf(ob.get(8)));
+					bridge.setLongs(String.valueOf(ob.get(8)));
 				}
 				if (ob.get(9) != null && !String.valueOf(ob.get(9)).equals("")) {
-					bridge.setBridge_widths(String.valueOf(ob.get(9)));
+					bridge.setWidths(String.valueOf(ob.get(9)));
 				}
 				if (ob.get(10) != null && !String.valueOf(ob.get(10)).equals("")) {
-					bridge.setBridge_weight(String.valueOf(ob.get(10)));
+					bridge.setWeight(String.valueOf(ob.get(10)));
 				}
 				list.add(bridge);
 			}

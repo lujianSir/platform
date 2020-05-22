@@ -2,34 +2,34 @@ package com.item.entity;
 
 public class BridgeMessage {
 
-	private int id;
+	private int mid;
 
-	private String bridge_id;// id
+	private String id;// id
 
-	private String bridge_message;// 信息
+	private String message;// 信息
 
-	public int getId() {
+	public int getMid() {
+		return mid;
+	}
+
+	public void setMid(int mid) {
+		this.mid = mid;
+	}
+
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public String getBridge_id() {
-		return bridge_id;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setBridge_id(String bridge_id) {
-		this.bridge_id = bridge_id;
-	}
-
-	public String getBridge_message() {
-		return bridge_message;
-	}
-
-	public void setBridge_message(String bridge_message) {
-		this.bridge_message = bridge_message;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 }

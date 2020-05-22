@@ -5,22 +5,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- namespace： 1. namespace必须和Mapper接口类路径一致 -->
 <mapper namespace="com.item.mapper.BridgeMapper">
 		<resultMap id="bridgeResult" type="com.item.entity.Bridge">
-	        <id property="bridge_id" column="bridge_id" />
-	        <result property="bridge_category" column="bridge_category" />
-	        <result property="bridge_name" column="bridge_name" />
-	        <result property="bridge_area" column="bridge_area" />
-	        <result property="bridge_height" column="bridge_height" />
-	        <result property="bridge_realheight" column="bridge_realheight" />   
-	        <result property="bridge_diameter" column="bridge_diameter" />  
-	        <result property="bridge_textures" column="bridge_textures" />
-	        <result property="bridge_longs" column="bridge_longs" />   
-	        <result property="bridge_widths" column="bridge_widths" />
-	        <result property="bridge_weight" column="bridge_weight" />   
-	        <result property="bridge_style" column="bridge_style" />
+	        <id property="id" column="id" />
+	        <result property="category" column="category" />
+	        <result property="name" column="name" />
+	        <result property="area" column="area" />
+	        <result property="height" column="height" />
+	        <result property="realheight" column="realheight" />   
+	        <result property="diameter" column="diameter" />  
+	        <result property="textures" column="textures" />
+	        <result property="longs" column="longs" />   
+	        <result property="widths" column="widths" />
+	        <result property="weight" column="weight" />   
+	        <result property="style" column="style" />
 	        <collection property="messages"  ofType="com.item.entity.BridgeMessage">
-				<id property="id" column="id" />
-				<result property="bridge_id" column="bridge_id" />
-		        <result property="bridge_message" column="bridge_message" />	    
+				<id property="mid" column="mid" />
+				<result property="id" column="id" />
+		        <result property="message" column="message" />	    
 			</collection>
 	         	 
 	    </resultMap>
@@ -29,30 +29,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 添加excel 内容 -->
 	<insert id="insertBridges" parameterType="java.util.List">
-    	insert into bridge (bridge_id, bridge_category,bridge_name, bridge_area, bridge_height,bridge_realheight, bridge_diameter,bridge_textures,bridge_longs,bridge_widths,bridge_weight)
+    	insert into bridge (id, category,name, area, height,realheight, diameter,textures,longs,widths,weight)
    		 values
 	    <foreach collection="list" item="item" index="index" separator=",">
-	      (#{item.bridge_id}, #{item.bridge_category}, #{item.bridge_name},#{item.bridge_area}, #{item.bridge_height},
-	      #{item.bridge_realheight}, #{item.bridge_diameter}, #{item.bridge_textures}, #{item.bridge_longs}, #{item.bridge_widths}, #{item.bridge_weight})
+	      (#{item.id}, #{item.category}, #{item.name},#{item.area}, #{item.height},
+	      #{item.realheight}, #{item.diameter}, #{item.textures}, #{item.longs}, #{item.widths}, #{item.weight})
 	    </foreach>
 	</insert>
 	
 	<!-- 添加信息 -->
 	<insert id="insertBridgeMessage" parameterType="com.item.entity.BridgeMessage">
-		insert into bridgemessage (bridge_id,bridge_message) values (#{bridge_id},#{bridge_message})
+		insert into bridgemessage (id,message) values (#{id},#{message})
 	</insert>
 	
 	<!-- 根据条件查询 -->
 	<select id="queryBridgeList" resultMap="bridgeResult">
 		SELECT
-			a.*, b.bridge_message,
-		  case when  ( select count(*) from bridgemessage where bridge_id=	a.bridge_id) >0 then 1 else 0 end bridge_style
+			a.*, b.message,
+		  case when  ( select count(*) from bridgemessage where id=	a.id) >0 then 1 else 0 end style
 		FROM
 			bridge a
-		LEFT JOIN bridgemessage b ON a.bridge_id = b.bridge_id
+		LEFT JOIN bridgemessage b ON a.id = b.id
 		<where>
-			<if test="bridge_id != null and bridge_id !=''">
-				and a.bridge_id=#{bridge_id}
+			<if test="id != null and id !=''">
+				and a.id=#{id}
 			</if>
 		</where>
 	</select>
