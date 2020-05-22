@@ -20,10 +20,15 @@ public class IntercepterConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 
-		List<String> excludePath = new ArrayList<>();
+		// 拦截
+		List<String> pathPatterns = new ArrayList<String>();
+		pathPatterns.add("/userinfo/**");
+
+		// 过滤
+		List<String> excludePath = new ArrayList<String>();
 		excludePath.add("/userinfo/login"); // 登录
 		excludePath.add("/userinfo/regist"); // 注册
 
-		registry.addInterceptor(tokenInterceptor).addPathPatterns("/**").excludePathPatterns(excludePath);
+		registry.addInterceptor(tokenInterceptor).addPathPatterns(pathPatterns).excludePathPatterns(excludePath);
 	}
 }
