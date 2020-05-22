@@ -19,7 +19,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	        <result property="style" column="style" />
 	        <collection property="messages"  ofType="com.item.entity.BridgeMessage">
 				<id property="mid" column="mid" />
-				<result property="id" column="id" />
 		        <result property="message" column="message" />	    
 			</collection>
 	         	 
@@ -45,7 +44,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 根据条件查询 -->
 	<select id="queryBridgeList" resultMap="bridgeResult">
 		SELECT
-			a.*, b.message,
+			a.*, b.message,b.mid,
 		  case when  ( select count(*) from bridgemessage where id=	a.id) >0 then 1 else 0 end style
 		FROM
 			bridge a
