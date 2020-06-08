@@ -71,4 +71,18 @@ public class BridgeController {
 
 		return bridgeService.queryBridgeList(bridge);
 	}
+
+	/**
+	 * 添加或者删除绑定的信息
+	 * 
+	 * @param bridgeMessage
+	 * @param style
+	 * @return
+	 */
+	@RequestMapping(value = "/insertOrDelete")
+	@ResponseBody
+	public Result<?> insertOrDelete(BridgeMessage bridgeMessage, int style) {
+
+		return bridgeService.insertOrDelete(bridgeMessage, style);
+	}
 }

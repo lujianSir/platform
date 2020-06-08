@@ -28,7 +28,12 @@ public interface BridgeService {
 	 * @return
 	 */
 	Result<?> queryBridgeList(Bridge bridge);
-	
-	
 
+	/**
+	 * 添加或者删除信息
+	 * 
+	 * @param bridgeMessage
+	 * @return
+	 */
+	Result<?> insertOrDelete(BridgeMessage bridgeMessage, int style);
 }

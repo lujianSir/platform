@@ -55,4 +55,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 	</select>
+	
+	<!-- 根据ID删除绑定的信息 -->
+	<delete id="deleteBridgeMessage" parameterType="com.item.entity.BridgeMessage">
+		delete from bridgemessage where id= #{id}
+	</delete>
 </mapper>

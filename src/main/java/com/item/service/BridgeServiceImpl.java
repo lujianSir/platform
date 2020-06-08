@@ -90,4 +90,17 @@ public class BridgeServiceImpl implements BridgeService {
 		return Result.success(bridgeMapper.queryBridgeList(bridge));
 	}
 
+	@Override
+	public Result<?> insertOrDelete(BridgeMessage bridgeMessage, int style) {
+		// TODO Auto-generated method stub
+		if (style == 1) {// 正常变异常
+			bridgeMapper.insertBridgeMessage(bridgeMessage);
+			return Result.success(1);
+		} else {// 异常变正常
+			bridgeMapper.deleteBridgeMessage(bridgeMessage);
+			return Result.success(0);
+		}
+
+	}
+
 }

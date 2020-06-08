@@ -29,4 +29,12 @@ public interface BridgeMapper {
 	 * @return
 	 */
 	List<Bridge> queryBridgeList(Bridge bridge);
+
+	/**
+	 * 删除绑定的信息
+	 * 
+	 * @param bridgeMessage
+	 * @return
+	 */
+	int deleteBridgeMessage(BridgeMessage bridgeMessage);
 }
